@@ -1,0 +1,32 @@
+{
+  "name": "didactic-aureon",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "15.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "three": "0.163.0",
+    "@react-three/fiber": "8.11.0",
+    "@react-three/drei": "9.45.0",
+    "framer-motion": "10.12.0",
+    "gsap": "3.12.2",
+    "zustand": "4.5.11",
+    "@tanstack/react-query": "5.5.14"
+  },
+  "devDependencies": {
+    "typescript": "5.5.2",
+    "tailwindcss": "4.3.1",
+    "postcss": "8.4.30",
+    "autoprefixer": "10.4.14",
+    "eslint": "8.47.0",
+    "eslint-config-next": "14.1.0",
+    "prisma": "5.15.0"
+  }
+}
