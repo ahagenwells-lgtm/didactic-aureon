@@ -2,10 +2,12 @@ import asyncio
 from contextlib import asynccontextmanager, suppress
 from datetime import datetime, timezone
 from decimal import Decimal
+from pathlib import Path
 
 from fastapi import Depends, FastAPI, HTTPException, Request, Response, status
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import FileResponse, JSONResponse
+from fastapi.staticfiles import StaticFiles
 from sqlalchemy import func, select
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
@@ -103,6 +105,14 @@ app = FastAPI(
     redoc_url=None,
     lifespan=lifespan,
 )
+
+WEB_DIR = Path(__file__).resolve().parent.parent / "web"
+app.mount("/assets", StaticFiles(directory=WEB_DIR), name="assets")
+
+
+@app.get("/", include_in_schema=False)
+def website() -> FileResponse:
+    return FileResponse(WEB_DIR / "index.html")
 
 if settings.cors_origins:
     app.add_middleware(

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A transparent investment simulation dashboard." />
+    <title>Aureon — Investment dashboard</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Aureon home"><span class="brand-mark">A</span><span>Aureon</span></a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#tiers">Tiers</a><a href="#how-it-works">How it works</a><a href="#prices">Markets</a>
+      </nav>
+      <div class="top-actions" id="top-actions"><button class="button ghost" data-action="open-auth">Sign in</button><button class="button primary" data-action="open-auth" data-auth-mode="register">Open account</button></div>
+    </header>
+
+    <main>
+      <section class="hero page-section" id="home">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot"></span> Transparent simulation platform</p>
+          <h1>A clearer way to<br /><em>model your growth.</em></h1>
+          <p class="lede">Explore tiered investment projections, digital-asset balances, and referral rewards in one deliberate, transparent dashboard.</p>
+          <div class="hero-actions"><button class="button primary large" data-action="open-auth" data-auth-mode="register">Create your account <span>→</span></button><a class="text-link" href="#how-it-works">See how it works <span>↓</span></a></div>
+          <p class="microcopy">Simulation only. Projections are not guaranteed returns or investment advice.</p>
+        </div>
+        <div class="hero-art panel">
+          <div class="art-header"><span>Portfolio outlook</span><span class="live-pill"><i></i> Live market data</span></div>
+          <div class="art-value">$24,860<span>.00</span></div>
+          <div class="art-change">↗ 8.42% <span>projection overview</span></div>
+          <svg class="chart" viewBox="0 0 540 170" role="img" aria-label="Illustrative upward portfolio chart">
+            <defs><linearGradient id="line-gradient" x1="0" x2="1"><stop stop-color="#72e3bb"/><stop offset="1" stop-color="#c8ed8f"/></linearGradient><linearGradient id="area-gradient" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#72e3bb" stop-opacity=".24"/><stop offset="1" stop-color="#72e3bb" stop-opacity="0"/></linearGradient></defs>
+            <path d="M0 157 C52 142 62 144 100 119 S166 133 198 94 S251 110 286 76 S339 89 373 50 S435 73 468 34 S505 35 540 6 L540 170 L0 170Z" fill="url(#area-gradient)"/>
+            <path d="M0 157 C52 142 62 144 100 119 S166 133 198 94 S251 110 286 76 S339 89 373 50 S435 73 468 34 S505 35 540 6" fill="none" stroke="url(#line-gradient)" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+          <div class="art-footer"><div><small>Available balance</small><strong>12,400 USDT</strong></div><div><small>Active position</small><strong>Gold · 90 days</strong></div></div>
+        </div>
+      </section>
+
+      <section class="market-strip" id="prices"><div class="market-label"><span class="pulse"></span> Market snapshots <small>cached public prices</small></div><div id="public-prices" class="price-ticker"><span class="muted">Loading prices…</span></div></section>
+
+      <section class="page-section tier-section" id="tiers">
+        <div class="section-heading"><div><p class="eyebrow">Choose your path</p><h2>Built around your <em>time horizon.</em></h2></div><p>Each tier uses transparent, configurable terms. Use the calculator to explore a projected outcome before you decide.</p></div>
+        <div class="tier-grid" id="tier-cards"><div class="loading-card">Loading tiers…</div></div>
+      </section>
+
+      <section class="page-section steps" id="how-it-works">
+        <div class="section-heading"><div><p class="eyebrow">A deliberate process</p><h2>Simple steps. <em>Clear records.</em></h2></div></div>
+        <div class="step-grid"><article><span>01</span><h3>Create and protect</h3><p>Set up an account with secure credentials. Your dashboard keeps a full internal activity record.</p></article><article><span>02</span><h3>Submit a transfer</h3><p>Provide an on-chain transaction hash for manual review before any wallet balance is credited.</p></article><article><span>03</span><h3>Model a position</h3><p>Pick an eligible tier and term. Principal is clearly separated as locked while a position is active.</p></article><article><span>04</span><h3>Review every move</h3><p>Withdrawals are reserved, reviewed, and recorded with an external transaction hash after approval.</p></article></div>
+      </section>
+
+      <section class="cta page-section"><div><p class="eyebrow">Ready when you are</p><h2>Make every decision with <em>context.</em></h2></div><button class="button light large" data-action="open-auth" data-auth-mode="register">Start exploring <span>→</span></button></section>
+    </main>
+
+    <footer><a class="brand" href="#home"><span class="brand-mark">A</span><span>Aureon</span></a><p>Investment simulation and accounting workflow. Not a custodial wallet or financial advice.</p><a href="/docs" target="_blank" rel="noopener">API documentation ↗</a></footer>
+
+    <dialog id="auth-dialog" class="auth-dialog"><button class="dialog-close" data-action="close-auth" aria-label="Close">×</button><div class="auth-intro"><span class="brand-mark">A</span><p class="eyebrow">Aureon account</p><h2>Welcome to a more <em>visible</em> workflow.</h2><p>Access your balances, submitted transfers, projections, and activity in one place.</p></div><div class="auth-form-wrap"><div class="auth-tabs"><button class="active" data-auth-tab="login">Sign in</button><button data-auth-tab="register">Create account</button></div><form id="login-form" class="auth-form"><label>Email<input type="email" name="email" autocomplete="email" required /></label><label>Password<input type="password" name="password" autocomplete="current-password" minlength="12" required /></label><button class="button primary full" type="submit">Sign in <span>→</span></button></form><form id="register-form" class="auth-form hidden"><label>Email<input type="email" name="email" autocomplete="email" required /></label><label>Password <small>12+ characters</small><input type="password" name="password" autocomplete="new-password" minlength="12" required /></label><label>Referral code <small>Optional</small><input type="text" name="referral_code" autocomplete="off" /></label><button class="button primary full" type="submit">Create account <span>→</span></button></form><p id="auth-error" class="form-message" aria-live="polite"></p></div></dialog>
+
+    <section id="app-shell" class="app-shell hidden" aria-live="polite">
+      <aside class="sidebar"><a class="brand" href="#dashboard"><span class="brand-mark">A</span><span>Aureon</span></a><div class="profile-mini"><span id="profile-initial">A</span><div><strong id="profile-email">Account</strong><small id="profile-role">Member</small></div></div><nav id="app-nav"><button class="nav-item active" data-view="dashboard"><i>⌂</i>Overview</button><button class="nav-item" data-view="invest"><i>◒</i>Invest</button><button class="nav-item" data-view="wallet"><i>◇</i>Wallet</button><button class="nav-item" data-view="activity"><i>≡</i>Activity</button><button class="nav-item admin-only hidden" data-view="admin"><i>✦</i>Admin control</button></nav><div class="sidebar-bottom"><button class="nav-item" id="sign-out"><i>↗</i>Sign out</button><p>Simulation environment<br />v1.0</p></div></aside>
+      <div class="app-content"><header class="dashboard-header"><button class="mobile-menu" data-action="toggle-menu" aria-label="Toggle menu">☰</button><div><p class="eyebrow" id="view-kicker">Portfolio</p><h1 id="view-title">Your overview</h1></div><button class="icon-button" id="refresh-data" title="Refresh data" aria-label="Refresh data">↻</button></header>
+        <div id="app-notice" class="notice hidden"></div>
+        <section id="view-dashboard" class="view active">
+          <div class="dashboard-hero"><div><p>Available portfolio value</p><h2 id="portfolio-value">—</h2><span id="portfolio-subtitle">Market valuation of available internal balances</span></div><div class="dashboard-hero-meta"><span>REFERRAL CODE</span><strong id="referral-code">—</strong><button class="copy-button" data-action="copy-referral">Copy</button></div></div>
+          <div class="stat-grid"><article><p>Available</p><strong id="available-total">—</strong><small>USDT balance</small></article><article><p>Locked</p><strong id="locked-total">—</strong><small>Active positions</small></article><article><p>Active positions</p><strong id="active-count">—</strong><small>Across all tiers</small></article><article><p>Market status</p><strong class="green">Live</strong><small id="price-age">Cached rates</small></article></div>
+          <div class="dashboard-columns"><article class="surface positions"><div class="surface-head"><div><h3>Active positions</h3><p>Principal and projected returns</p></div><button class="text-button" data-view="invest">New position →</button></div><div id="positions-list" class="list-empty">No active positions yet.</div></article><article class="surface holdings"><div class="surface-head"><div><h3>Balances</h3><p>Internal available and reserved funds</p></div><button class="text-button" data-view="wallet">View wallet →</button></div><div id="balance-list" class="balance-list"></div></article></div>
+        </section>
+
+        <section id="view-invest" class="view"><div class="view-grid"><article class="surface calculator"><div class="surface-head"><div><h3>ROI calculator</h3><p>Projection based on the current tier terms.</p></div></div><form id="roi-form" class="form-grid"><label>Investment tier<select name="tier_code" id="roi-tier" required></select></label><label>Principal (USDT)<input name="amount" id="roi-amount" type="number" min="0" step="0.000001" placeholder="e.g. 1000" required /></label><label>Term<select name="term_days" id="roi-term"><option value="30">30 days</option><option value="90" selected>90 days</option><option value="180">180 days</option><option value="365">365 days</option></select></label><button class="button secondary" type="submit">Calculate projection</button></form><div id="roi-result" class="roi-result muted">Choose a tier and amount to calculate a projection.</div></article><article class="surface purchase"><p class="eyebrow">Create position</p><h3>Put your projection into a recorded position.</h3><p>Your USDT principal moves from available to locked. The expected ROI remains a projection, not a guaranteed result.</p><form id="investment-form"><input type="hidden" name="tier_code" /><input type="hidden" name="amount" /><input type="hidden" name="term_days" /><button type="submit" class="button primary full">Create position <span>→</span></button></form></article></div><article class="surface all-positions"><div class="surface-head"><div><h3>All positions</h3><p>Settle a position after its recorded maturity date.</p></div></div><div id="all-positions" class="list-empty">No positions created.</div></article></section>
+
+        <section id="view-wallet" class="view"><div class="wallet-summary" id="wallet-summary"></div><div class="view-grid"><article class="surface"><div class="surface-head"><div><h3>Submit a deposit</h3><p>Only submit a transaction after sending to an approved receiving address.</p></div></div><form id="deposit-form" class="form-grid"><label>Receiving address<select name="receiving_wallet_id" id="deposit-address" required></select></label><div id="address-preview" class="address-preview">Select an address to review network details.</div><label>Transaction hash<input name="tx_hash" minlength="20" maxlength="255" placeholder="On-chain transaction hash" required /></label><label>Amount<input name="amount" type="number" min="0" step="0.000001" required /></label><button class="button primary" type="submit">Submit for review</button></form></article><article class="surface"><div class="surface-head"><div><h3>Request a withdrawal</h3><p>Funds are reserved until an administrator approves or rejects the request.</p></div></div><form id="withdrawal-form" class="form-grid"><label>Asset<select name="asset" id="withdrawal-asset"><option>USDT</option><option>BTC</option><option>ETH</option></select></label><label>Network<input name="network" placeholder="e.g. ETHEREUM" pattern="[A-Za-z0-9_-]+" required /></label><label>Destination address<input name="destination_address" minlength="20" maxlength="180" placeholder="Your public wallet address" required /></label><label>Amount<input name="amount" type="number" min="0" step="0.000001" required /></label><button class="button secondary" type="submit">Request withdrawal</button></form></article></div><div class="dashboard-columns"><article class="surface"><div class="surface-head"><div><h3>Deposits</h3><p>Manual review status</p></div></div><div id="deposit-list" class="list-empty">No deposits submitted.</div></article><article class="surface"><div class="surface-head"><div><h3>Withdrawals</h3><p>Reserved and reviewed requests</p></div></div><div id="withdrawal-list" class="list-empty">No withdrawals requested.</div></article></div></section>
+
+        <section id="view-activity" class="view"><article class="surface"><div class="surface-head"><div><h3>Ledger activity</h3><p>Append-only internal balance events.</p></div></div><div id="ledger-list" class="ledger-list list-empty">No activity yet.</div></article></section>
+
+        <section id="view-admin" class="view"><div class="admin-banner"><div><p class="eyebrow">Administrator workspace</p><h2>Review all <em>recorded movement.</em></h2></div><button class="button light" id="refresh-prices">Refresh market prices</button></div><div id="admin-stats" class="stat-grid"></div><div class="admin-grid"><article class="surface"><div class="surface-head"><div><h3>Pending deposits</h3><p>Verify externally before crediting.</p></div></div><div id="admin-deposits" class="review-list list-empty">No pending deposits.</div></article><article class="surface"><div class="surface-head"><div><h3>Pending withdrawals</h3><p>Record external transfer hash on approval.</p></div></div><div id="admin-withdrawals" class="review-list list-empty">No pending withdrawals.</div></article></div><div class="admin-grid"><article class="surface"><div class="surface-head"><div><h3>Receiving wallets</h3><p>Public receiving addresses only. Never enter private keys.</p></div></div><form id="receiving-wallet-form" class="compact-form"><input name="asset" value="USDT" maxlength="12" placeholder="Asset" required /><input name="network" placeholder="Network" required /><input name="address" placeholder="Public receiving address" minlength="20" required /><button class="button secondary" type="submit">Add wallet</button></form><div id="admin-wallets" class="mini-list"></div></article><article class="surface"><div class="surface-head"><div><h3>Tier controls</h3><p>Changes apply to future positions and referral calculations.</p></div></div><div id="admin-tiers" class="mini-list"></div></article></div></section>
+      </div>
+    </section>
+    <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+    <script src="/assets/app.js" defer></script>
+  </body>
+</html>

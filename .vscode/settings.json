@@ -1,0 +1,17 @@
+{
+    "gitlens.terminalLinks.showIn": "inspect",
+    "gitlens.views.formats.commits.label": "${❰ tips|11? ❱${email}➤  }${message}",
+    "gitlens.views.formats.stashes.label": "${message}${pullRequestDate}",
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./app",
+        "-p",
+        "*test.py"
+    ],
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestArgs": [
+        "investment_platform"
+    ]
+}

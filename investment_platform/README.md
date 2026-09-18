@@ -16,9 +16,21 @@ Copy-Item .env.example .env
 uvicorn app.main:app --reload
 ```
 
-Open `http://127.0.0.1:8000/docs`. The bootstrap admin is only created when both `BOOTSTRAP_ADMIN_EMAIL` and `BOOTSTRAP_ADMIN_PASSWORD` are configured.
+Open `http://127.0.0.1:8000` for the responsive web application and `http://127.0.0.1:8000/docs` for the API reference. The bootstrap admin is only created when both `BOOTSTRAP_ADMIN_EMAIL` and `BOOTSTRAP_ADMIN_PASSWORD` are configured.
 
 Run the critical workflow test with `pytest -q` from this directory. For container use, build `Dockerfile` only after supplying production environment variables through your deployment secret manager; do not bake `.env` into the image.
+
+## Web application
+
+The site at `/` is a responsive single-page dashboard served by FastAPI itself. It uses same-origin API requests and keeps the bearer token only in browser session storage. It provides:
+
+- public tier cards, ROI projections, and cached market snapshots;
+- sign-in and registration, including optional referral codes;
+- balance, position, deposit, withdrawal, and ledger views;
+- manual deposit/withdrawal submission flows; and
+- an administrator-only review workspace for pending transfers, public receiving addresses, live-price refreshes, and future tier/referral-rate changes.
+
+The web client never requests or stores wallet private keys, recovery phrases, or seed material.
 
 ## Key workflows
 
